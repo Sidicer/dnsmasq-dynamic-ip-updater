@@ -26,10 +26,10 @@ echo "conf-dir=/etc/dnsmasq.d,.bak" | sudo tee -a "/etc/dnsmasq.conf"
 curl -sSL https://raw.githubusercontent.com/Sidicer/dnsmasq-dynamic-ip-updater/refs/heads/main/10-update-dnsmasq.sh | \
   sudo tee /etc/NetworkManager/dispatcher.d/10-update-dnsmasq.sh > /dev/null && \
   sudo chmod +x /etc/NetworkManager/dispatcher.d/10-update-dnsmasq.sh
-
-# Set DNSMASQ_DOMAIN & MAIN_INTERFACE that matches your configuration
 echo "DNSMASQ_DOMAIN=homelab.lan\nMAIN_INTERFACE=enp2s0" | \
   sudo tee /etc/NetworkManager/dispatcher.d/.env-update-dnsmasq
+
+# Update DNSMASQ_DOMAIN & MAIN_INTERFACE to match your configuration
 ```
 > [!NOTE]
 > If `.env-update-dnsmasq` doesn't exist and the script was not manually edited the fallbacks are:
